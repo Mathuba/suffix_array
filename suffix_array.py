@@ -10,8 +10,15 @@ def build_suffix_array(text):
   in text where the i-th lexicographically smallest
   suffix of text starts.
   """
-  result = []
-  # Implement this function yourself
+  t_len = len(text)
+  result = [0] * t_len
+
+  suffixes = [ (i, text[i:]) for i in range(t_len)]
+  suffixes.sort(key=lambda x: x[1])
+
+  for i, _ in enumerate(suffixes):
+    result[i] = suffixes[i][0]
+    
   return result
 
 
